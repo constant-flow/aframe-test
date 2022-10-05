@@ -8,17 +8,15 @@
   </head>
   <body>
     <a-scene fog="type: linear; color: #444; far:10;">
-      <!-- <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9" material="fog: true"></a-box> -->
+      <a-box id="box" position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
       <!-- <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere> -->
       <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
       <a-plane position="0 0 -4" rotation="-90 0 0" width="10" height="10" color="#7BC8A4"></a-plane>
       <a-sky color="#ECECEC"></a-sky>
 
       <a-assets>
-        <!-- No loop. -->
-        <!-- <video id="my-video" src="assets/fire.mp4" autoplay="true" loop="true"></video> -->
-        <video id="my-video" src="assets/fire_1.mp4" autoplay="true" loop="true"></video>
-        <!-- <video id="my-video" src="assets/fire_1.webm" autoplay="true" loop="true" webkit-playsinline></video> -->
+        <!-- <video id="my-video" src="assets/fire_1.mp4" autoplay="true" loop="true"></video> -->
+        <video id="my-video" src="assets/fire_no_audio.mp4" autoplay="true" loop="true"></video>
       </a-assets>
 
       <a-entity geometry="primitive: box" material="src: #my-video"></a-entity>
@@ -33,5 +31,13 @@
       <!-- <a-entity obj-model="obj: #tree-obj; mtl: #tree-mtl"></a-entity> -->
       <a-entity obj-model="obj: #tree-obj;" material="src: #my-video"></a-entity>
     </a-scene>
+
+    <script>
+      var vid = document.querySelector("#my-video");
+      setTimeout(() => {
+        console.log("play video");
+        vid.play();
+      }, 1000);
+    </script>
   </body>
 </html>
